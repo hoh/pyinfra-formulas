@@ -8,7 +8,7 @@ The motivation behind this project is to fill the gap between [modules](https://
 
 # Installation
 
-`pip install git+https://github.com/hoh/pyinfra-formulas.git`
+`pip install pyinfra-formulas`
 
 # Usage
 
