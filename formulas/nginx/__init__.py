@@ -30,7 +30,7 @@ def _deploy_user(name='deploy', group='deploy'):
             group=group,
             ensure_home=True,
         )
-    return name
+    return name, group
 
 
 def static_website(name, directory):
