@@ -68,7 +68,7 @@ def static_website(name, directory):
     if files.template(
         here.abspath('files/static_website.nginx'),
         '/etc/nginx/sites-enabled/{}'.format(name),
-        domain=name,
+        name=name,
     ).changed:
         init.systemd(
             'nginx',
