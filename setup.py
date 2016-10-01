@@ -3,7 +3,7 @@ from setuptools import setup
 
 if __name__ == '__main__':
     setup(name='pyinfra-formulas',
-          version='0.0.1',
+          version='0.0.2',
           description='Collection of Pyinfra modules for common use cases',
           author='Hugo Herter',
           author_email='contact@hugoherter.com',
@@ -14,7 +14,7 @@ if __name__ == '__main__':
           install_requires=['pyinfra', 'hereby'],
           license='MIT',
           keywords="pyinfra configuration management formulas",
-          classifiers=['Development Status :: 1 - Alpha',
+          classifiers=['Development Status :: 2 - Pre-Alpha',
                        'Intended Audience :: Developers',
                        'Intended Audience :: System Administrators',
                        'License :: OSI Approved :: MIT License',
