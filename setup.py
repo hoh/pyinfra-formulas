@@ -2,13 +2,15 @@
 from setuptools import setup
 
 if __name__ == '__main__':
-    setup(name='Pyinfra-Formulas',
+    setup(name='pyinfra-formulas',
           version='0.0.1',
           description='Collection of Pyinfra modules for common use cases',
           author='Hugo Herter',
           author_email='contact@hugoherter.com',
           url='https://github.com/hoh/pyinfra-formulas',
           packages=['formulas', 'formulas.nginx'],
+          package_dir={'formulas': 'formulas'},
+          package_data={'formulas': ['*/files/*']},
           install_requires=['pyinfra', 'hereby'],
           license='MIT',
           keywords="pyinfra configuration management formulas",
