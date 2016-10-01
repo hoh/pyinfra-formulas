@@ -74,3 +74,26 @@ def static_website(name, directory):
             'nginx',
             reloaded=True,
         )
+
+
+def proxy(name, target):
+    '''
+    Configure Nginx to proxy requests to another HTTP server.
+
+    + name: domain name used to serve the files
+    + target: URL of the target to forward requests to
+    '''
+    apt.packages(
+        ['nginx'],
+    )
+
+    if files.template(
+        here.abspath('files/proxy.nginx'),
+        '/etc/nginx/sites-enabled/{}'.format(name),
+        name=name,
+        target=target,
+    ).changed:
+        init.systemd(
+            'nginx',
+            reloaded=True,
+        )
