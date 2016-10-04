@@ -58,7 +58,7 @@ def static_website(name, directory):
         group=group,
     )
     files.sync(
-        'files/web/{}/'.format(name),
+        directory,
         '/srv/web/{}/'.format(name),
         user=user,
         group=group,
