@@ -8,7 +8,7 @@ if __name__ == '__main__':
           author='Hugo Herter',
           author_email='contact@hugoherter.com',
           url='https://github.com/hoh/pyinfra-formulas',
-          packages=['formulas', 'formulas.nginx'],
+          packages=['formulas', 'formulas.nginx', 'formulas.nodejs'],
           package_dir={'formulas': 'formulas'},
           package_data={'formulas': ['*/files/*']},
           install_requires=['pyinfra', 'hereby'],
