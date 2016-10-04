@@ -33,17 +33,37 @@ def _deploy_user(name='deploy', group='deploy'):
     return name, group
 
 
-def static_website(name, directory):
+def static_website(name, path):
     '''
-    Configure Nginx to serve the files in `directory`.
+    Configure Nginx to serve files in server `path`.
 
     + name: domain name used to serve the files
-    + directory: path to sync files from
+    + path: path on the server where files are located
     '''
     apt.packages(
         ['nginx'],
     )
 
+    if files.template(
+        here.abspath('files/static_website.nginx'),
+        '/etc/nginx/sites-enabled/{}'.format(name),
+        name=name,
+        path=path,
+    ).changed:
+        init.systemd(
+            'nginx',
+            reloaded=True,
+        )
+
+
+def synced_website(name, directory):
+    '''
+    Configure Nginx to serve the files in local `directory`.
+
+    + name: domain name used to serve the files
+    + directory: path to sync files from
+    '''
+    path = '/srv/web/{}/'.format(name)
     user, group = _deploy_user()
 
     files.directory(
@@ -57,23 +77,16 @@ def static_website(name, directory):
         user=user,
         group=group,
     )
+
     files.sync(
         directory,
-        '/srv/web/{}/'.format(name),
+        path,
         user=user,
         group=group,
         # delete=True,
     )
 
-    if files.template(
-        here.abspath('files/static_website.nginx'),
-        '/etc/nginx/sites-enabled/{}'.format(name),
-        name=name,
-    ).changed:
-        init.systemd(
-            'nginx',
-            reloaded=True,
-        )
+    static_website(name, path)
 
 
 def proxy(name, target):

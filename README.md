@@ -14,9 +14,9 @@ The motivation behind this project is to fill the gap between [modules](https://
 
 Here is simple deploy file to illustrate how you can use a formula:
 ```python
-from formulas.nginx import static_website
+from formulas.nginx import synced_website
 
-static_website(
+synced_website(
     'www.example.org',
     'example_org_files',
 )
