@@ -3,7 +3,7 @@ from setuptools import setup
 
 if __name__ == '__main__':
     setup(name='pyinfra-formulas',
-          version='0.0.3',
+          version='0.0.4',
           description='Collection of Pyinfra modules for common use cases',
           author='Hugo Herter',
           author_email='contact@hugoherter.com',
