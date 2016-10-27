@@ -12,7 +12,7 @@ The motivation behind this project is to fill the gap between [modules](https://
 
 # Usage
 
-Here is simple deploy file to illustrate how you can use a formula:
+Here is simple deploy file to illustrate how you can use a formula (assuming you have a folder named `example_org_files` containing your website and the DNS configured).
 ```python
 from formulas.nginx import synced_website
 
@@ -20,4 +20,9 @@ synced_website(
     'www.example.org',
     'example_org_files',
 )
+```
+
+Do deploy the website, just run:
+```python
+pyinfra -i $MY_SERVER_IP deploy.py
 ```
