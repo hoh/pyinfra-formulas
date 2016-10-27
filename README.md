@@ -23,6 +23,6 @@ synced_website(
 ```
 
 Do deploy the website, just run:
-```python
+```bash
 pyinfra -i $MY_SERVER_IP deploy.py
 ```
